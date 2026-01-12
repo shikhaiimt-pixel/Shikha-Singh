@@ -33,6 +33,9 @@ export interface AuditExtracted {
   jsonld: any[];
   imageAltCount?: number;
   missingAltCount?: number;
+  loadTime?: number; // In milliseconds
+  pageSizeKb?: number;
+  performanceScore?: number; // 0-100
 }
 
 export interface AuditResponse {

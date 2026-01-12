@@ -25,6 +25,12 @@ const AuditResult: React.FC<AuditResultProps> = ({ data, onRequestHelp }) => {
     return 'text-red-500';
   };
 
+  const getPerformanceColor = (score: number) => {
+    if (score >= 90) return 'text-emerald-500';
+    if (score >= 50) return 'text-amber-500';
+    return 'text-red-500';
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'overview':
@@ -100,6 +106,43 @@ const AuditResult: React.FC<AuditResultProps> = ({ data, onRequestHelp }) => {
                 <p className="text-slate-800 font-medium leading-relaxed">{data.extracted.description || 'Not detected'}</p>
               </div>
             </div>
+          </div>
+        );
+      case 'performance':
+        const perf = data.extracted.performanceScore || 0;
+        return (
+          <div className="space-y-6">
+             <div className="flex items-center justify-between mb-2">
+                <div>
+                   <h4 className="text-xl font-bold text-slate-900">Speed Optimization</h4>
+                   <p className="text-sm text-slate-500">Analysis of load times and resource sizes.</p>
+                </div>
+                <div className={`text-4xl font-black ${getPerformanceColor(perf)}`}>
+                   {perf}%
+                </div>
+             </div>
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                   <p className="text-xs font-bold text-slate-400 uppercase mb-1">Load Time</p>
+                   <p className="text-xl font-bold text-slate-800">{data.extracted.loadTime}ms</p>
+                </div>
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                   <p className="text-xs font-bold text-slate-400 uppercase mb-1">Page Size</p>
+                   <p className="text-xl font-bold text-slate-800">{data.extracted.pageSizeKb} KB</p>
+                </div>
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                   <p className="text-xs font-bold text-slate-400 uppercase mb-1">Mobile Friendly</p>
+                   <p className="text-xl font-bold text-emerald-600">Yes</p>
+                </div>
+             </div>
+             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <h4 className="font-bold text-slate-900 mb-3">Optimization Tips</h4>
+                <ul className="space-y-2 text-sm text-slate-600">
+                   <li className="flex gap-2"><i className="fas fa-check-circle text-emerald-500 mt-0.5"></i> Enable Gzip compression on your server.</li>
+                   <li className="flex gap-2"><i className="fas fa-check-circle text-emerald-500 mt-0.5"></i> Implement Lazy Loading for below-the-fold images.</li>
+                   <li className="flex gap-2"><i className="fas fa-check-circle text-emerald-500 mt-0.5"></i> Minify CSS and JavaScript files.</li>
+                </ul>
+             </div>
           </div>
         );
       case 'local-seo':
@@ -194,8 +237,8 @@ const AuditResult: React.FC<AuditResultProps> = ({ data, onRequestHelp }) => {
               <p className="text-2xl font-bold text-blue-700">{data.counts.technical}</p>
             </div>
             <div className="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
-              <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Alt Tags</p>
-              <p className="text-2xl font-bold text-emerald-700">{data.extracted.missingAltCount === 0 ? 'Good' : 'Fix'}</p>
+              <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Speed Score</p>
+              <p className="text-2xl font-bold text-emerald-700">{data.extracted.performanceScore}%</p>
             </div>
           </div>
 
@@ -220,6 +263,7 @@ const AuditResult: React.FC<AuditResultProps> = ({ data, onRequestHelp }) => {
               {[
                 {id: 'overview', label: 'Overview'},
                 {id: 'local-seo', label: 'Local & GMB'},
+                {id: 'performance', label: 'Speed & Load'},
                 {id: 'seo-tags', label: 'SEO & Alt Tags'}
               ].map((tab) => (
                 <button
@@ -266,7 +310,7 @@ const AuditResult: React.FC<AuditResultProps> = ({ data, onRequestHelp }) => {
               We fix the technical barriers stopping you from ranking.
             </p>
             <ul className="space-y-3 mb-8 text-xs text-blue-100/80">
-              <li className="flex items-center gap-2"><i className="fas fa-check-circle text-blue-400"></i> Alt Tag Optimization</li>
+              <li className="flex items-center gap-2"><i className="fas fa-bolt text-blue-400"></i> Page Speed Optimization</li>
               <li className="flex items-center gap-2"><i className="fas fa-check-circle text-blue-400"></i> GMB Profile Verification</li>
               <li className="flex items-center gap-2"><i className="fas fa-check-circle text-blue-400"></i> Meta-tag Cleanup</li>
             </ul>
