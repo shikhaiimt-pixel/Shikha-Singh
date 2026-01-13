@@ -1,66 +1,117 @@
 
-export enum Severity {
-  P0 = 'P0',
-  P1 = 'P1',
-  P2 = 'P2'
+export type Severity = "Critical" | "Warning" | "Medium";
+export type Impact = "High" | "Medium" | "Low";
+export type Diff = "Easy" | "Medium" | "Hard";
+
+export interface ActionItem {
+  title: string;
+  impact: Impact;
+  type: string;
+  steps: string[];
+  difficulty: Diff;
 }
 
-export enum IssueType {
-  Technical = 'Technical',
-  NonTechnical = 'Non-technical'
-}
-
-export interface AuditIssue {
+export interface IssueItem {
   id: string;
   title: string;
   severity: Severity;
-  type: IssueType;
-  found: string | boolean | null;
-  description: string;
+  type: string;
+  whatWeFound: string;
   whyItMatters: string;
-  howToFix: string;
+  howToFix: string[];
   exampleSnippet?: string;
-}
-
-export interface AuditExtracted {
-  title?: string;
-  description?: string;
-  robots?: string;
-  canonical?: string;
-  og: Record<string, string>;
-  twitter: Record<string, string>;
-  hreflang: string[];
-  jsonld: any[];
-  imageAltCount?: number;
-  missingAltCount?: number;
-  loadTime?: number; // In milliseconds
-  pageSizeKb?: number;
-  performanceScore?: number; // 0-100
+  estTime: string;
 }
 
 export interface AuditResponse {
   url: string;
   finalUrl: string;
   statusCode: number;
-  redirectChain: string[];
+  fetchedAtISO: string;
   score: number;
-  grade: 'Excellent' | 'Good' | 'Needs Work' | 'Poor';
+  grade: string;
   counts: {
-    P0: number;
-    P1: number;
-    P2: number;
+    critical: number;
+    warnings: number;
+    medium: number;
     technical: number;
     nonTechnical: number;
+    growthOpps: number;
   };
-  issues: AuditIssue[];
-  extracted: AuditExtracted;
-}
-
-export interface LeadForm {
-  name: string;
-  email: string;
-  website: string;
-  businessType: string;
-  notes: string;
-  emailReport: boolean;
+  overview: {
+    priorityFixes: IssueItem[];
+    summaryBullets: string[];
+    recommendedNextStep: string;
+  };
+  local: {
+    mapsStatus: "unknown" | "provided";
+    providedGbpUrl: string | null;
+    websiteSignals: {
+      gbpLinkFound: boolean;
+      gbpLinkUrl: string | null;
+      napFound: boolean;
+      addressFound: boolean;
+      phoneFound: boolean;
+      telLinkFound: boolean;
+      localKeywordsFound: boolean;
+      mapsEmbedFound: boolean;
+      schemaLocalBusinessFound: boolean;
+      reviewsSectionFound: boolean;
+    };
+    localReadinessScore: number;
+    recommendations: ActionItem[];
+  };
+  speed: {
+    status: "ok" | "estimated" | "unknown";
+    metrics: {
+      loadTimeMs: number | null;
+      pageSizeKB: number | null;
+      requestsCount: number | null;
+      mobileFriendly: boolean | null;
+      compression: "yes" | "no" | "unknown";
+      caching: "yes" | "no" | "unknown";
+    };
+    tips: ActionItem[];
+  };
+  seo: {
+    title: { value: string | null; length: number | null; status: string; suggestion: string };
+    metaDescription: { value: string | null; length: number | null; status: string; suggestion: string };
+    canonical: { value: string | null; status: string; suggestion: string };
+    robots: { value: string | null; status: string; suggestion: string };
+    headings: { h1Count: number | null; suggestion: string };
+    altTags: { totalImages: number | null; missingAltCount: number | null; examplesMissingAlt: string[] };
+    recommendations: ActionItem[];
+    recommendedHeadSnippet: string;
+  };
+  social: {
+    openGraph: {
+      ogTitle: string | null;
+      ogDescription: string | null;
+      ogImage: string | null;
+      ogUrl: string | null;
+      ogType: string | null;
+      issues: IssueItem[];
+      recommendedTagsSnippet: string;
+    };
+    twitter: {
+      card: string | null;
+      title: string | null;
+      description: string | null;
+      image: string | null;
+      issues: IssueItem[];
+      recommendedTagsSnippet: string;
+    };
+    previews: {
+      google: { title: string; description: string; displayUrl: string };
+      facebook: { title: string; description: string; imageUrl: string | null; url: string };
+      twitter: { title: string; description: string; imageUrl: string | null; url: string; cardType: string | null };
+    };
+  };
+  structuredData: {
+    status: "present" | "missing" | "invalid" | "unknown";
+    detectedTypes: string[];
+    parseErrors: string[];
+    opportunities: ActionItem[];
+    recommendedJsonLdSnippets: string[];
+  };
 }
