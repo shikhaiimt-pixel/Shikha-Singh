@@ -252,7 +252,7 @@ const App: React.FC = () => {
                     <button onClick={() => setSubmitted(false)} className="text-blue-600 font-black underline">Send Another Message</button>
                  </div>
                ) : (
-                 <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-8">
+                 <form onSubmit={(e) => { e.preventDefault(); https://formspree.io/f/xreebpdn; }} className="space-y-8">
                     <div className="grid md:grid-cols-2 gap-8">
                        <div><label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">Name</label><input required className="w-full bg-slate-50 rounded-2xl px-6 py-5 outline-none" /></div>
                        <div><label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">Email</label><input required type="email" className="w-full bg-slate-50 rounded-2xl px-6 py-5 outline-none" /></div>
