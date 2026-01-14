@@ -53,7 +53,7 @@ export async function runAudit(url: string): Promise<AuditResponse> {
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-preview',
+      model: 'gemini-2.5-flash-lite',
       contents: [{ role: 'user', parts: [{ text: promptText }] }],
       config: { 
         temperature: 0.1,
