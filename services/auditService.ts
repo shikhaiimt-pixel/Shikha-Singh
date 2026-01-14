@@ -58,12 +58,29 @@ export async function runAudit(url: string): Promise<AuditResponse> {
       config: { 
         temperature: 0.1,
         responseMimeType: "application/json",
-        systemInstruction: "You are a senior Local SEO auditor. You evaluate websites for local search signals like NAP consistency, schema, and local keyword relevance. You never assume GMB status without user-provided links."
+        systemInstruction: "You are a professional SEO analyzer. Output ONLY the JSON object. Do not include markdown formatting (like ```json), commentary, or extra text at the end."
       },
     });
 
-    const parsed = JSON.parse(response.text);
-    return parsed;
+    let rawText = response.text.trim();
+    
+    // Attempt to extract the JSON block if the model included extra text
+    // This regex looks for the outermost curly braces
+    const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) {
+      throw new Error("No JSON found in response");
+    }
+    
+    const jsonToParse = jsonMatch[0];
+
+    try {
+      const parsed = JSON.parse(jsonToParse);
+      return parsed;
+    } catch (parseError) {
+      console.error("JSON Parse Error on extracted text:", parseError);
+      console.debug("Problematic text segment:", jsonToParse.substring(0, 100) + "...");
+      throw parseError;
+    }
   } catch (err) {
     console.error("Audit Service Failed:", err);
     throw new Error("Local audit failed. Please try again.");
