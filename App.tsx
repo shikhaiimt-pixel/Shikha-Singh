@@ -252,15 +252,70 @@ const App: React.FC = () => {
                     <button onClick={() => setSubmitted(false)} className="text-blue-600 font-black underline">Send Another Message</button>
                  </div>
                ) : (
-                 <form onSubmit={(e) => { e.preventDefault(); https://formspree.io/f/xreebpdn; }} className="space-y-8">
-                    <div className="grid md:grid-cols-2 gap-8">
-                       <div><label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">Name</label><input required className="w-full bg-slate-50 rounded-2xl px-6 py-5 outline-none" /></div>
-                       <div><label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">Email</label><input required type="email" className="w-full bg-slate-50 rounded-2xl px-6 py-5 outline-none" /></div>
-                    </div>
-                    <div><label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">Website URL</label><input required defaultValue={urlInput} className="w-full bg-slate-50 rounded-2xl px-6 py-5 outline-none" /></div>
-                    <div><label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">Message</label><textarea required rows={4} value={contactMessage} onChange={(e) => setContactMessage(e.target.value)} className="w-full bg-slate-50 rounded-2xl px-6 py-5 outline-none" placeholder="How can our experts help?"></textarea></div>
-                    <button type="submit" className="w-full bg-blue-600 text-white py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-blue-200 hover:bg-blue-700 transition-all">Submit Help Request</button>
-                 </form>
+                <form
+  action="https://formspree.io/f/xreedbpn"
+  method="POST"
+  className="space-y-8"
+>
+  <div className="grid md:grid-cols-2 gap-8">
+    <div>
+      <label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">
+        Name
+      </label>
+      <input
+        name="name"
+        required
+        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 text-slate-900"
+      />
+    </div>
+
+    <div>
+      <label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">
+        Email
+      </label>
+      <input
+        name="email"
+        type="email"
+        required
+        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 text-slate-900"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">
+      Website URL
+    </label>
+    <input
+      name="website"
+      required
+      defaultValue={urlInput}
+      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 text-slate-900"
+    />
+  </div>
+
+  <div>
+    <label className="text-[11px] font-black uppercase tracking-widest text-slate-300 mb-3 block">
+      Message
+    </label>
+    <textarea
+      name="message"
+      required
+      rows={4}
+      value={contactMessage}
+      onChange={(e) => setContactMessage(e.target.value)}
+      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 text-slate-900"
+    />
+  </div>
+
+  <button
+    type="submit"
+    className="w-full bg-blue-600 text-white py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-blue-200"
+  >
+    Send Message
+  </button>
+</form>
+
                )}
             </div>
           </div>
