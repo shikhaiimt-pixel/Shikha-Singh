@@ -305,7 +305,7 @@ const App: React.FC = () => {
       value={contactMessage}
       onChange={(e) => setContactMessage(e.target.value)}
       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 text-slate-900"
-    />
+    ></textarea>
   </div>
 
   <button
