@@ -237,10 +237,7 @@ const renderServices = () => (
         {currentPage === 'how-it-works' && renderHowItWorks()}
         {currentPage === 'services' && renderServices()}
         {currentPage === 'audit' && (
-  ...
-)}
-
-          <div className="min-h-screen">
+           <div className="min-h-screen">
             {isAnalyzing ? (
               <div className="max-w-3xl mx-auto py-40 text-center px-4">
                 <div className="relative inline-block mb-12">
