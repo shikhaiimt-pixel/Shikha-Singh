@@ -393,6 +393,7 @@ const renderServices = () => (
          </div>
       </footer>
     </div>
+    </section>
   );
 };
 
