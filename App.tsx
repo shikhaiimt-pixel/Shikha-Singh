@@ -165,54 +165,160 @@ const App: React.FC = () => {
   );
 
   const renderHowItWorks = () => (
-  <section className="max-w-5xl mx-auto px-6 py-16">
-    <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-      How Mapmyspot Works
-    </h1>
-    <p className="mt-4 text-lg text-slate-600">
-      Mapmyspot gives small businesses a clear, practical plan to improve local visibility on Google — without the jargon.
-      Start with a free scan, then fix what’s holding you back with a prioritized action plan.
-    </p>
+   <section className="max-w-6xl mx-auto px-6 py-16">
+    <div className="max-w-3xl">
+      <p className="text-[11px] font-black uppercase tracking-widest text-slate-400">
+        How it works
+      </p>
+      <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-3">
+        A simple local SEO workflow that turns your website into a lead generator.
+      </h1>
+      <p className="mt-5 text-lg text-slate-600 leading-relaxed">
+        Mapmyspot helps small businesses understand why they’re not showing up on Google —
+        and what to fix first. Start with a quick website & local visibility check, then follow
+        clear, practical steps to improve rankings, trust, and enquiries.
+      </p>
+    </div>
 
-    <div className="mt-10 grid md:grid-cols-3 gap-6">
+    <div className="mt-12 grid md:grid-cols-4 gap-4">
+      {[
+        {
+          step: "Step 1",
+          title: "Run the free audit",
+          text: "Enter your website URL. We scan key SEO signals that affect local ranking and trust.",
+        },
+        {
+          step: "Step 2",
+          title: "Get a clear report",
+          text: "You’ll see what’s working, what’s missing, and what’s hurting your visibility.",
+        },
+        {
+          step: "Step 3",
+          title: "Follow guided fixes",
+          text: "Use our best-practice guides to make improvements in the right order.",
+        },
+        {
+          step: "Step 4",
+          title: "Grow local enquiries",
+          text: "Better visibility + better pages = more calls, messages, bookings and store visits.",
+        },
+      ].map((s) => (
+        <div key={s.step} className="bg-white rounded-2xl border border-slate-200 p-5">
+          <div className="text-[11px] font-black uppercase tracking-widest text-blue-600">
+            {s.step}
+          </div>
+          <div className="mt-2 text-lg font-black text-slate-900">{s.title}</div>
+          <p className="mt-2 text-slate-600 leading-relaxed">{s.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div className="mt-12 grid lg:grid-cols-3 gap-6">
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
-        <p className="text-sm font-black uppercase tracking-widest text-slate-400">Step 1</p>
-        <h2 className="mt-2 text-xl font-black text-slate-900">Scan your website</h2>
-        <p className="mt-2 text-slate-600">
-          Paste your website URL. We check key SEO signals, website structure, and local ranking factors that influence visibility.
+        <h2 className="text-xl font-black text-slate-900">What the audit checks</h2>
+        <p className="mt-3 text-slate-600 leading-relaxed">
+          We focus on the foundations that matter for local search — not vanity metrics.
+          You’ll get a quick view of what Google can understand about your business and pages.
         </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>• Title tags & meta descriptions (are they written for clicks + relevance?)</li>
+          <li>• Headings & page structure (H1/H2 clarity for your service + location)</li>
+          <li>• Content depth & topic relevance (does the page answer real customer questions?)</li>
+          <li>• Technical basics (mobile readiness, indexability, crawl signals)</li>
+          <li>• Local trust markers (contact details, location info, consistency)</li>
+        </ul>
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
-        <p className="text-sm font-black uppercase tracking-widest text-slate-400">Step 2</p>
-        <h2 className="mt-2 text-xl font-black text-slate-900">Get a clear action plan</h2>
-        <p className="mt-2 text-slate-600">
-          You’ll get improvements broken into priorities — quick wins first, then deeper fixes that create long-term results.
+        <h2 className="text-xl font-black text-slate-900">Why local businesses don’t rank</h2>
+        <p className="mt-3 text-slate-600 leading-relaxed">
+          Most websites look “nice” but still don’t rank because Google can’t confidently match
+          the business to a search intent or location.
         </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>• Service pages are too thin (“we offer X”) with no proof, details, or FAQs</li>
+          <li>• No clear location focus (city/area not mentioned in the right places)</li>
+          <li>• Missing trust signals (contact info, real photos, reviews, credentials)</li>
+          <li>• Duplicate or unclear page topics (Google doesn’t know what to rank)</li>
+          <li>• Technical issues that block crawling or slow down the experience</li>
+        </ul>
       </div>
 
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
-        <p className="text-sm font-black uppercase tracking-widest text-slate-400">Step 3</p>
-        <h2 className="mt-2 text-xl font-black text-slate-900">Implement & grow</h2>
-        <p className="mt-2 text-slate-600">
-          Use our guides or request help. The goal: more visibility, more enquiries, more bookings — from people searching locally.
+        <h2 className="text-xl font-black text-slate-900">Who this is for</h2>
+        <p className="mt-3 text-slate-600 leading-relaxed">
+          Mapmyspot is built for any small business that wants more local customers —
+          without needing to become an SEO expert.
         </p>
+        <p className="mt-4 text-slate-700">
+          Examples: <strong>coaches</strong>, <strong>plumbers</strong>, <strong>salons</strong>,{" "}
+          <strong>dentists</strong>, <strong>therapists</strong>, <strong>cleaners</strong>,{" "}
+          <strong>electricians</strong>, <strong>gyms</strong>, <strong>restaurants</strong>, and more —
+          but it works for almost any local service.
+        </p>
+        <div className="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-4">
+          <p className="text-slate-700">
+            <strong>Tip:</strong> The fastest wins usually come from improving the “Services” page
+            and creating 1 strong page per core service (with FAQs + local details).
+          </p>
+        </div>
       </div>
     </div>
 
-    <div className="mt-10 bg-slate-50 rounded-2xl border border-slate-200 p-8">
-      <h3 className="text-2xl font-black text-slate-900">Who is this for?</h3>
-      <p className="mt-2 text-slate-600">
-        Any small business. We don’t limit it to certain industries — if you rely on local customers finding you on Google,
-        Mapmyspot can help.
-      </p>
-      <p className="mt-4 text-slate-600">
-        Examples include: trades & home services, clinics, salons, coaches & consultants, restaurants & cafés, wellness,
-        education, local shops, and more.
-      </p>
+    <div className="mt-12 bg-white rounded-2xl border border-slate-200 p-8">
+      <h2 className="text-2xl font-black text-slate-900">Frequently asked questions</h2>
+
+      <div className="mt-6 space-y-6">
+        <div>
+          <h3 className="text-lg font-black text-slate-900">
+            Do I need a Google Business Profile to rank locally?
+          </h3>
+          <p className="mt-2 text-slate-600 leading-relaxed">
+            It helps a lot, but your website still matters. Strong service pages, clear contact details,
+            and consistent local information increase trust and improve performance across searches.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-black text-slate-900">
+            How long does it take to see improvements?
+          </h3>
+          <p className="mt-2 text-slate-600 leading-relaxed">
+            Some fixes improve clarity immediately (better titles, better structure). Ranking changes
+            usually take time as Google re-crawls and re-evaluates pages. The key is doing the right
+            fixes in the right order.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-black text-slate-900">
+            What should I fix first if my pages are empty or thin?
+          </h3>
+          <p className="mt-2 text-slate-600 leading-relaxed">
+            Start with one high-quality “Services” page (overview), then build a dedicated page for
+            each main service. Add real FAQs, proof, process, service areas, and clear calls-to-action.
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-8 flex flex-col sm:flex-row gap-3">
+        <button
+          onClick={() => setCurrentPage("audit")}
+          className="w-full sm:w-auto bg-blue-600 text-white px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-blue-200"
+        >
+          Start Free Audit
+        </button>
+        <button
+          onClick={() => setCurrentPage("services")}
+          className="w-full sm:w-auto bg-white border border-slate-200 text-slate-900 px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-[11px]"
+        >
+          See Services
+        </button>
+      </div>
     </div>
   </section>
 );
+
 
 const renderServices = () => (
   <section className="max-w-5xl mx-auto px-6 py-16">
