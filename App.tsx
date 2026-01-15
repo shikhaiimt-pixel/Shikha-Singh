@@ -164,12 +164,82 @@ const App: React.FC = () => {
     </div>
   );
 
+  const renderHowItWorks = () => (
+  <section className="max-w-5xl mx-auto px-6 py-16">
+    <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+      How Mapmyspot Works
+    </h1>
+    <p className="mt-4 text-lg text-slate-600">
+      Mapmyspot gives small businesses a clear, practical plan to improve local visibility on Google — without the jargon.
+      Start with a free scan, then fix what’s holding you back with a prioritized action plan.
+    </p>
+
+    <div className="mt-10 grid md:grid-cols-3 gap-6">
+      <div className="bg-white rounded-2xl border border-slate-200 p-6">
+        <p className="text-sm font-black uppercase tracking-widest text-slate-400">Step 1</p>
+        <h2 className="mt-2 text-xl font-black text-slate-900">Scan your website</h2>
+        <p className="mt-2 text-slate-600">
+          Paste your website URL. We check key SEO signals, website structure, and local ranking factors that influence visibility.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl border border-slate-200 p-6">
+        <p className="text-sm font-black uppercase tracking-widest text-slate-400">Step 2</p>
+        <h2 className="mt-2 text-xl font-black text-slate-900">Get a clear action plan</h2>
+        <p className="mt-2 text-slate-600">
+          You’ll get improvements broken into priorities — quick wins first, then deeper fixes that create long-term results.
+        </p>
+      </div>
+
+      <div className="bg-white rounded-2xl border border-slate-200 p-6">
+        <p className="text-sm font-black uppercase tracking-widest text-slate-400">Step 3</p>
+        <h2 className="mt-2 text-xl font-black text-slate-900">Implement & grow</h2>
+        <p className="mt-2 text-slate-600">
+          Use our guides or request help. The goal: more visibility, more enquiries, more bookings — from people searching locally.
+        </p>
+      </div>
+    </div>
+
+    <div className="mt-10 bg-slate-50 rounded-2xl border border-slate-200 p-8">
+      <h3 className="text-2xl font-black text-slate-900">Who is this for?</h3>
+      <p className="mt-2 text-slate-600">
+        Any small business. We don’t limit it to certain industries — if you rely on local customers finding you on Google,
+        Mapmyspot can help.
+      </p>
+      <p className="mt-4 text-slate-600">
+        Examples include: trades & home services, clinics, salons, coaches & consultants, restaurants & cafés, wellness,
+        education, local shops, and more.
+      </p>
+    </div>
+  </section>
+);
+
+const renderServices = () => (
+  <section className="max-w-5xl mx-auto px-6 py-16">
+    <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+      Services
+    </h1>
+    <p className="mt-4 text-lg text-slate-600">
+      We help small businesses improve local visibility and turn searches into real enquiries.
+      Start with the free audit, then choose the support you need.
+    </p>
+
+    <div className="mt-10 grid md:grid-cols-2 gap-6">
+      <div className="bg-white rounded-2xl border border-slate-200 p-6">
+        <h2 cl
+
+
   return (
     <div className="min-h-screen bg-slate-50 selection:bg-blue-100 selection:text-blue-600">
       <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
       <main>
         {currentPage === 'home' && renderHome()}
+        {currentPage === 'how-it-works' && renderHowItWorks()}
+        {currentPage === 'services' && renderServices()}
         {currentPage === 'audit' && (
+  ...
+)}
+
           <div className="min-h-screen">
             {isAnalyzing ? (
               <div className="max-w-3xl mx-auto py-40 text-center px-4">
