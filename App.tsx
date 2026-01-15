@@ -226,9 +226,8 @@ const renderServices = () => (
 
     <div className="mt-10 grid md:grid-cols-2 gap-6">
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
-        <h2 cl
-
-
+</div>
+  </div>
   return (
     <div className="min-h-screen bg-slate-50 selection:bg-blue-100 selection:text-blue-600">
       <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
