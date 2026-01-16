@@ -331,19 +331,67 @@ const App: React.FC = () => {
 
 
 const renderServices = () => (
-  <section className="max-w-5xl mx-auto px-6 py-16">
-    <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-      Services
-    </h1>
-    <p className="mt-4 text-lg text-slate-600">
-      We help small businesses improve local visibility and turn searches into real enquiries.
-      Start with the free audit, then choose the support you need.
-    </p>
+  <section className="max-w-6xl mx-auto px-6 py-16">
+    <div className="max-w-3xl">
+      <p className="text-[11px] font-black uppercase tracking-widest text-slate-400">Services</p>
+      <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mt-3">
+        Local SEO help that fits your business.
+      </h1>
+      <p className="mt-5 text-lg text-slate-600 leading-relaxed">
+        Use Mapmyspot to identify what’s stopping your website from ranking locally — then choose the level of support
+        you want. No confusing packages, no pressure.
+      </p>
+    </div>
 
     <div className="mt-10 grid md:grid-cols-2 gap-6">
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
-</div>
-  </div>
+        <h2 className="text-2xl font-black text-slate-900">Free Website + Local Visibility Audit</h2>
+        <p className="mt-3 text-slate-600 leading-relaxed">
+          A fast scan of SEO essentials, local trust signals, and common issues that stop small businesses from showing
+          up on Google.
+        </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>• Titles, headings, indexability</li>
+          <li>• Local signals (NAP, maps, trust markers)</li>
+          <li>• Social previews and technical basics</li>
+        </ul>
+        <button
+          onClick={() => setCurrentPage("home")}
+          className="mt-6 w-full bg-slate-900 text-white px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-[11px]"
+        >
+          Run Free Audit
+        </button>
+      </div>
+
+      <div className="bg-white rounded-2xl border border-slate-200 p-6">
+        <h2 className="text-2xl font-black text-slate-900">Implementation Support</h2>
+        <p className="mt-3 text-slate-600 leading-relaxed">
+          If you want help fixing the findings, we can guide you step-by-step or handle key updates with you.
+        </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>• Improve service pages + local relevance</li>
+          <li>• Google Business Profile alignment</li>
+          <li>• Quick wins + a prioritized roadmap</li>
+        </ul>
+        <button
+          onClick={() => setCurrentPage("contact")}
+          className="mt-6 w-full bg-blue-600 text-white px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-blue-200"
+        >
+          Request Help
+        </button>
+      </div>
+    </div>
+
+    <div className="mt-10 bg-slate-50 rounded-2xl border border-slate-200 p-6">
+      <h3 className="text-xl font-black text-slate-900">Pricing</h3>
+      <p className="mt-2 text-slate-600 leading-relaxed">
+        We don’t show fixed pricing on the website because every business is different. If you need support, send a
+        message and we’ll recommend the best next step.
+      </p>
+    </div>
+  </section>
+);
+
   return (
     <div className="min-h-screen bg-slate-50 selection:bg-blue-100 selection:text-blue-600">
       <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
