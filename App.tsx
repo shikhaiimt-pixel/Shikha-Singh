@@ -180,38 +180,48 @@ const App: React.FC = () => {
       </p>
     </div>
 
-    <div className="mt-12 grid md:grid-cols-4 gap-4">
-      {[
-        {
-          step: "Step 1",
-          title: "Run the free audit",
-          text: "Enter your website URL. We scan key SEO signals that affect local ranking and trust.",
-        },
-        {
-          step: "Step 2",
-          title: "Get a clear report",
-          text: "You’ll see what’s working, what’s missing, and what’s hurting your visibility.",
-        },
-        {
-          step: "Step 3",
-          title: "Follow guided fixes",
-          text: "Use our best-practice guides to make improvements in the right order.",
-        },
-        {
-          step: "Step 4",
-          title: "Grow local enquiries",
-          text: "Better visibility + better pages = more calls, messages, bookings and store visits.",
-        },
-      ].map((s) => (
-        <div key={s.step} className="bg-white rounded-2xl border border-slate-200 p-5">
-          <div className="text-[11px] font-black uppercase tracking-widest text-blue-600">
-            {s.step}
-          </div>
-          <div className="mt-2 text-lg font-black text-slate-900">{s.title}</div>
-          <p className="mt-2 text-slate-600 leading-relaxed">{s.text}</p>
-        </div>
-      ))}
-    </div>
+   <div className="mt-10 grid md:grid-cols-2 gap-6">
+  <div className="bg-white rounded-2xl border border-slate-200 p-6">
+    <h2 className="text-2xl font-black text-slate-900">1) Run a quick local SEO check</h2>
+    <p className="mt-3 text-slate-600 leading-relaxed">
+      Enter your website and we scan the essentials that impact local visibility: page titles, headings, indexability,
+      speed signals, internal linking, location relevance, and trust factors.
+    </p>
+  </div>
+
+  <div className="bg-white rounded-2xl border border-slate-200 p-6">
+    <h2 className="text-2xl font-black text-slate-900">2) Review what’s holding you back</h2>
+    <p className="mt-3 text-slate-600 leading-relaxed">
+      You’ll get clear findings in plain language — what’s missing, what’s incorrect, and what to fix first.
+      We focus on the changes that typically move the needle fastest for small businesses.
+    </p>
+  </div>
+
+  <div className="bg-white rounded-2xl border border-slate-200 p-6">
+    <h2 className="text-2xl font-black text-slate-900">3) Follow a prioritized action plan</h2>
+    <p className="mt-3 text-slate-600 leading-relaxed">
+      Instead of a long technical report, you get a checklist ordered by impact: quick wins, medium-effort improvements,
+      and longer-term growth tasks.
+    </p>
+  </div>
+
+  <div className="bg-white rounded-2xl border border-slate-200 p-6">
+    <h2 className="text-2xl font-black text-slate-900">4) Improve, then re-check</h2>
+    <p className="mt-3 text-slate-600 leading-relaxed">
+      After updates, run the check again to confirm improvements. Local SEO is iterative — small fixes done consistently
+      compound into better rankings, more calls, and more enquiries.
+    </p>
+  </div>
+</div>
+
+<div className="mt-12 bg-slate-50 rounded-2xl border border-slate-200 p-6">
+  <h2 className="text-2xl font-black text-slate-900">Who this is for</h2>
+  <p className="mt-3 text-slate-600 leading-relaxed">
+    Mapmyspot is built for any local business that wants more customers from Google — trades, clinics, salons,
+    agencies, consultants, restaurants, studios, and growing service businesses (and more).
+  </p>
+</div>
+
 
     <div className="mt-12 grid lg:grid-cols-3 gap-6">
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
