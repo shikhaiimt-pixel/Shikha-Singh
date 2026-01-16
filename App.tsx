@@ -83,10 +83,13 @@ const App: React.FC = () => {
   };
 
   const navigateToGuide = (slug: string) => {
-    setCurrentGuideSlug(slug);
-    setCurrentPage('guide-post');
-    window.scrollTo(0, 0);
-  };
+  setCurrentGuideSlug(slug);
+  setCurrentPage('guide-post');
+
+  // Scroll after render (fixes "feels like same page" issue)
+  requestAnimationFrame(() => window.scrollTo(0, 0));
+  setTimeout(() => window.scrollTo(0, 0), 0);
+};
 
   const filteredGuides = useMemo(() => {
     return guides.filter(g => {
@@ -447,7 +450,7 @@ const renderServices = () => (
                  <h1 className="text-6xl font-black text-slate-900 mb-6 tracking-tight">Growth <span className="text-blue-600">Hub</span></h1>
               </div>
               <div className="grid md:grid-cols-3 gap-10">
-                 {guides.map(post => (
+                {filteredGuides.map(post => (
                     <article key={post.slug} onClick={() => navigateToGuide(post.slug)} className="bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all cursor-pointer group">
                        <div className="h-48 overflow-hidden"><img src={post.ogImage} className="w-full h-full object-cover group-hover:scale-105 transition-transform" /></div>
                        <div className="p-8">
