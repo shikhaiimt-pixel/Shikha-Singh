@@ -445,10 +445,13 @@ const renderServices = () => (
     <div className="min-h-screen bg-slate-50 selection:bg-blue-100 selection:text-blue-600">
       <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
       <main>
-        {currentPage === 'home' && renderHome()}
-        {currentPage === 'how-it-works' && renderHowItWorks()}
-        {currentPage === 'services' && renderServices()}
-        {currentPage === 'audit' && (
+  {currentPage === 'home' && renderHome()}
+  {currentPage === 'how-it-works' && renderHowItWorks()}
+  {currentPage === 'services' && renderServices()}
+
+  {!['home','how-it-works','services','audit'].includes(currentPage) && renderHome()}
+
+  {currentPage === 'audit' && (
            <div className="min-h-screen">
             {isAnalyzing ? (
               <div className="max-w-3xl mx-auto py-40 text-center px-4">
