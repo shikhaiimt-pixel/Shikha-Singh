@@ -146,20 +146,117 @@ const App: React.FC = () => {
           </div>
         </form>
 
-        <div className="mt-24 pt-24 border-t border-slate-200/50">
-           <h3 className="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] mb-12">Actionable Guides for Every Industry</h3>
-           <div className="grid md:grid-cols-4 gap-8">
-             {['Coaches', 'Plumbers', 'Salons', 'Dentists'].map(ind => (
-               <div key={ind} onClick={() => { setActiveCategory(ind as any); setCurrentPage('blog'); }} className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer">
-                  <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <i className={`fas ${ind === 'Coaches' ? 'fa-user-tie' : ind === 'Plumbers' ? 'fa-faucet' : ind === 'Salons' ? 'fa-scissors' : 'fa-tooth'}`}></i>
-                  </div>
-                  <h4 className="font-black text-slate-900">{ind} SEO</h4>
-                  <p className="text-[10px] text-slate-400 font-bold uppercase mt-2">Browse Playbooks</p>
-               </div>
-             ))}
-           </div>
+       {/* Growth Snapshot Section */}
+<section className="mt-24 pt-24 border-t border-slate-200/50">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid lg:grid-cols-2 gap-10 items-center">
+      {/* Left */}
+      <div>
+        <p className="text-[11px] font-black text-blue-600 uppercase tracking-[0.3em]">
+          Business Growth Snapshot
+        </p>
+
+        <h2 className="mt-4 text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
+          Make your website visible — and turn more visitors into enquiries
+        </h2>
+
+        <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+          Run a free audit and get clear, practical fixes for SEO, speed, mobile and local signals — built for any small business.
+        </p>
+
+        <div className="mt-8 grid sm:grid-cols-3 gap-4">
+          <div className="rounded-2xl border bg-white p-4 shadow-sm">
+            <div className="text-2xl font-black text-slate-900">+38%</div>
+            <div className="text-sm text-slate-600">Local clicks</div>
+          </div>
+          <div className="rounded-2xl border bg-white p-4 shadow-sm">
+            <div className="text-2xl font-black text-slate-900">-1.2s</div>
+            <div className="text-sm text-slate-600">Faster load</div>
+          </div>
+          <div className="rounded-2xl border bg-white p-4 shadow-sm">
+            <div className="text-2xl font-black text-slate-900">+21%</div>
+            <div className="text-sm text-slate-600">More enquiries</div>
+          </div>
         </div>
+
+        <div className="mt-8 flex flex-wrap gap-3 items-center">
+          <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-4 py-2 text-sm font-semibold">
+            Built for any local business
+          </span>
+          <span className="text-sm text-slate-500">
+            coaches • trades • clinics • salons • agencies • and more
+          </span>
+        </div>
+      </div>
+
+      {/* Right: Visual */}
+      <div className="rounded-3xl border bg-white p-6 shadow-sm">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="text-sm font-bold text-slate-900">Traffic trend</div>
+            <div className="text-xs text-slate-500">last 30 days</div>
+          </div>
+          <div className="rounded-xl bg-slate-50 border px-3 py-2 text-sm font-bold text-slate-700">
+            Audit Score: <span className="text-blue-600">82/100</span>
+          </div>
+        </div>
+
+        <div className="mt-6 rounded-2xl bg-slate-50 border p-4">
+          <svg viewBox="0 0 520 220" className="w-full h-auto" role="img" aria-label="Traffic increasing over time">
+            <g opacity="0.2">
+              <line x1="0" y1="40" x2="520" y2="40" stroke="currentColor" />
+              <line x1="0" y1="90" x2="520" y2="90" stroke="currentColor" />
+              <line x1="0" y1="140" x2="520" y2="140" stroke="currentColor" />
+              <line x1="0" y1="190" x2="520" y2="190" stroke="currentColor" />
+            </g>
+
+            <path
+              d="M 0 190
+                 C 70 170, 90 160, 120 165
+                 C 150 170, 170 140, 205 135
+                 C 240 130, 260 150, 295 120
+                 C 330 90, 360 110, 395 85
+                 C 430 55, 460 70, 520 35
+                 L 520 220 L 0 220 Z"
+              fill="currentColor"
+              className="text-blue-100"
+            />
+
+            <path
+              d="M 0 190
+                 C 70 170, 90 160, 120 165
+                 C 150 170, 170 140, 205 135
+                 C 240 130, 260 150, 295 120
+                 C 330 90, 360 110, 395 85
+                 C 430 55, 460 70, 520 35"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeLinecap="round"
+              className="text-blue-600"
+            />
+          </svg>
+
+          <div className="mt-4 grid grid-cols-3 gap-3 text-sm">
+            <div className="rounded-xl bg-white border p-3">
+              <div className="font-black text-slate-900">SEO</div>
+              <div className="text-slate-600 text-xs">Meta + headings</div>
+            </div>
+            <div className="rounded-xl bg-white border p-3">
+              <div className="font-black text-slate-900">Speed</div>
+              <div className="text-slate-600 text-xs">Core web vitals</div>
+            </div>
+            <div className="rounded-xl bg-white border p-3">
+              <div className="font-black text-slate-900">Local</div>
+              <div className="text-slate-600 text-xs">Maps signals</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
       </div>
     </div>
   );
