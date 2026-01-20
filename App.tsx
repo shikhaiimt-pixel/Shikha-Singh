@@ -317,6 +317,122 @@ const App: React.FC = () => {
     switch (currentPage) {
       case 'home':
         return renderHome();
+const renderHowItWorks = () => (
+  <div className="bg-slate-50 min-h-screen">
+    <div className="max-w-6xl mx-auto px-4 pt-24 pb-24">
+      <div className="text-center mb-16">
+        <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">How It Works</h1>
+        <p className="mt-4 text-lg text-slate-500 font-medium max-w-2xl mx-auto">
+          A simple 3-step process to turn your website into a local lead engine.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-shadow">
+          <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-black mb-6">1</div>
+          <h3 className="text-xl font-black text-slate-900 mb-3">Scan your site</h3>
+          <p className="text-slate-500 font-medium">
+            Enter your URL and we audit SEO, speed, mobile usability and local signals.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-shadow">
+          <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-black mb-6">2</div>
+          <h3 className="text-xl font-black text-slate-900 mb-3">See what’s blocking growth</h3>
+          <p className="text-slate-500 font-medium">
+            Get clear issues + fixes (titles, headings, broken links, speed bottlenecks, local readiness).
+          </p>
+        </div>
+
+        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-shadow">
+          <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-black mb-6">3</div>
+          <h3 className="text-xl font-black text-slate-900 mb-3">Apply fixes & grow</h3>
+          <p className="text-slate-500 font-medium">
+            Follow the recommendations and watch your visibility, calls and map actions climb.
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-16 text-center">
+        <button
+          onClick={() => setCurrentPage('home')}
+          className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-blue-600 transition-colors shadow-xl"
+        >
+          Run a Free Audit
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+const renderServices = () => (
+  <div className="bg-slate-50 min-h-screen">
+    <div className="max-w-6xl mx-auto px-4 pt-24 pb-24">
+      <div className="text-center mb-16">
+        <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">Services</h1>
+        <p className="mt-4 text-lg text-slate-500 font-medium max-w-2xl mx-auto">
+          Start free, then upgrade when you’re ready for hands-on support.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-all">
+          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Free</p>
+          <h3 className="mt-3 text-2xl font-black text-slate-900">Instant Audit</h3>
+          <p className="mt-3 text-slate-500 font-medium">One-click scan + key fixes.</p>
+          <ul className="mt-6 space-y-3 text-slate-600 font-medium">
+            <li>• SEO + headings checks</li>
+            <li>• Speed & mobile signals</li>
+            <li>• Local readiness hints</li>
+          </ul>
+          <button
+            onClick={() => setCurrentPage('home')}
+            className="mt-10 w-full py-4 rounded-2xl bg-slate-900 text-white font-black uppercase tracking-widest text-[11px] hover:bg-blue-600 transition-colors"
+          >
+            Start Free
+          </button>
+        </div>
+
+        <div className="bg-slate-900 rounded-[2.5rem] p-10 shadow-2xl relative overflow-hidden">
+          <div className="absolute inset-0 bg-blue-600/10 blur-3xl"></div>
+          <div className="relative z-10">
+            <p className="text-[10px] font-black uppercase tracking-widest text-blue-300">Popular</p>
+            <h3 className="mt-3 text-2xl font-black text-white">Guided Fix Plan</h3>
+            <p className="mt-3 text-blue-100 font-medium">A prioritized roadmap for fast wins.</p>
+            <ul className="mt-6 space-y-3 text-blue-100 font-medium">
+              <li>• Step-by-step fixes</li>
+              <li>• Local SEO checklist</li>
+              <li>• Conversion improvements</li>
+            </ul>
+            <button
+              onClick={() => setCurrentPage('contact')}
+              className="mt-10 w-full py-4 rounded-2xl bg-white text-slate-900 font-black uppercase tracking-widest text-[11px] hover:bg-blue-50 transition-colors"
+            >
+              Talk to Us
+            </button>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-all">
+          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Done-For-You</p>
+          <h3 className="mt-3 text-2xl font-black text-slate-900">Implementation</h3>
+          <p className="mt-3 text-slate-500 font-medium">We apply fixes for you.</p>
+          <ul className="mt-6 space-y-3 text-slate-600 font-medium">
+            <li>• Technical SEO cleanup</li>
+            <li>• Local pages & schema</li>
+            <li>• Speed optimization</li>
+          </ul>
+          <button
+            onClick={() => setCurrentPage('contact')}
+            className="mt-10 w-full py-4 rounded-2xl border border-slate-200 bg-white text-slate-900 font-black uppercase tracking-widest text-[11px] hover:bg-slate-50 transition-colors"
+          >
+            Get a Quote
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
       case 'audit':
         return (
